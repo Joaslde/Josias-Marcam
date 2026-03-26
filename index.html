@@ -142,6 +142,7 @@
       background: linear-gradient(90deg, rgba(5,5,5,1) 0%, rgba(212,175,55,.14) 30%, rgba(212,175,55,.2) 50%, rgba(212,175,55,.14) 70%, rgba(5,5,5,1) 100%);
       border-bottom: 1px solid rgba(212,175,55,.35);
       position: relative;
+      
     }
     .top-banner::after {
       content: ''; position: absolute; bottom:0; left:0; right:0; height:1px;
@@ -164,8 +165,13 @@
       font-size: 12px; font-weight: 600; color: var(--gold-light);
       letter-spacing: 1.5px; text-transform: uppercase; margin-bottom: 32px;
       animation: fadeDown .8s ease-out both;
-      margin-bottom:3px;
-    }
+      margin-bottom:1.8rem;
+    } 
+    
+    .empathy-text {
+  /* On centre tout le texte de la colonne de droite */
+  text-align: center;
+}
 
     .hero h1 {
       font-family: 'Barlow Semi Condensed', sans-serif;
@@ -430,16 +436,24 @@
       .proof-grid { grid-template-columns: 1fr; }
     }
     .proof-img-wrap {
-      border-radius: 14px;
-      overflow: hidden;
-      border: 1px solid var(--border-mid);
-      background: var(--card);
-      aspect-ratio: 16/10;
-      transition: border-color .3s ease;
-    }
+  border-radius: 14px;
+  overflow: hidden;
+  border: 1px solid var(--border-mid);
+  background: var(--card);
+  /* SUPPRESSION de aspect-ratio: 16/10 qui coupait les photos */
+  height: auto; 
+  transition: border-color .3s ease;
+  padding: 5px; /* Petit padding pour que la capture ne touche pas les bords */
+}
     .proof-img-wrap:hover { border-color: rgba(212,175,55,.35); }
-    .proof-img-wrap img { width: 100%; height: 100%; object-fit: cover; display: block; }
-    .proof-img-placeholder {
+    .proof-img-wrap img {
+  width: 100%;
+  /* On laisse la hauteur s'adapter à la capture d'écran */
+  height: auto; 
+  /* 'contain' pour s'assurer qu'absolument rien n'est rogné */
+  object-fit: contain; 
+  display: block;
+}    .proof-img-placeholder {
       width: 100%; height: 100%;
       display: flex; flex-direction: column; align-items: center; justify-content: center;
       gap: 12px; color: var(--muted);
@@ -544,7 +558,7 @@
               class="empathy-img"
               onerror="this.src='https://via.placeholder.com/400x400/0A0A0A/D4AF37?text=Josias+Marcam'"
             />
-            <div class="empathy-img-badge">Josias Marcam Media Buyer</div>
+            <div class="empathy-img-badge">Josias Marcam - Media Buyer</div>
           </div>
         </div>
 
@@ -552,7 +566,7 @@
         <div class="col-md-8">
           
             
-            <div class="empathy-body">
+            <div class="empathy-body" style ="text-align: center;">
               Il y a quelques années, je ne connaissais rien à la publicité en ligne
               <br><br>
               Aujourd'hui, en tant que <strong>Senior Consultant</strong>, je conseille des marques internationales et je gère mon temps comme je l'entends depuis n'importe quel pays
